@@ -18,7 +18,7 @@ function reducer(state, { type, payload }) {
         return {
           ...state,
           currentOperand: payload.digit,
-          overwrite: false
+          overwrite: false,
         }
       }
       if (payload.digit === "0" && state.currentOperand === "0") {
@@ -44,7 +44,7 @@ function reducer(state, { type, payload }) {
         }
       }
 
-      if (state.previousOperand === null) {
+      if (state.previousOperand == null) {
         return {
           ...state,
           operation: payload.operation,
@@ -57,7 +57,7 @@ function reducer(state, { type, payload }) {
         ...state,
         previousOperand: evaluate(state),
         operation: payload.operation,
-        currentOperand: null
+        currentOperand: null,
       }
     case ACTIONS.CLEAR:
       return {}
